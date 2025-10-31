@@ -1,4 +1,4 @@
-# Jarkom-Modul-3-2025-K-42
+# Jarkom-Modul-3-2025-K42
 | Nama | NRP |
 | :-------- | :------- | 
 | S. Farhan Baig | 5027241097| 
