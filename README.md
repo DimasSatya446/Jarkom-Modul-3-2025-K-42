@@ -198,6 +198,76 @@ setelah itu buka `/etc/default/isc-dhcp-server` dan isi dengan
 ```
 INTERFACESv4="eth0"
 ```
+lanjutkan dengan mengedit config berikut `/etc/dhcp/dhcpd.conf`
+```
+default-lease-time 600;
+max-lease-time 3600;
+authoritative;
+
+# LAN1 - Manusia
+subnet 10.232.1.0 netmask 255.255.255.0 {
+    range 10.232.1.6 10.232.1.34;
+    range 10.232.1.68 10.232.1.94;
+    option routers 10.232.1.1;
+    option broadcast-address 10.232.1.255;
+    option domain-name-servers 192.168.122.1;
+    default-lease-time 1800;
+}
+
+# LAN2 - Elf
+subnet 10.232.2.0 netmask 255.255.255.0 {
+    range 10.232.2.35 10.232.2.67;
+    range 10.232.2.96 10.232.2.121;
+    option routers 10.232.2.1;
+    option broadcast-address 10.232.2.255;
+    option domain-name-servers 192.168.122.1;
+    default-lease-time 600;
+}
+
+# LAN3 - Server zone (relay)
+subnet 10.232.3.0 netmask 255.255.255.0 {
+    option routers 10.232.3.1;
+}
+
+# LAN4 - Database (Aldarion, Palantir, Narvi)
+subnet 10.232.4.0 netmask 255.255.255.0 {
+    option routers 10.232.4.1;
+}
+
+# LAN5 - Proxy & LB
+subnet 10.232.5.0 netmask 255.255.255.0 {
+    option routers 10.232.5.1;
+}
+
+# Khamul
+host khamul {
+    hardware ethernet 02:42:22:01:5f:00; 
+    fixed-address 10.232.3.95;
+}
+```
+lalu restart server
+```
+service isc-dhcp-server restart
+service isc-dhcp-server status
+```
+### Durin
+<img width="2306" height="180" alt="image" src="https://github.com/user-attachments/assets/7b1111ee-db47-4482-a031-f0a22cb7e057" />
+
+Lakukan beberapa instalasi sebelum melakukan konfigurasi pada router, instalasi seperti berikut:
+```
+Lakukan beberapa instalasi sebelum melakukan konfigurasi pada router
+```
+setelah itu edit config `/etc/default/isc-dhcp-relay` dan isi dengan:
+```
+SERVERS="10.232.4.2"
+INTERFACES="eth1 eth2 eth3 eth4 eth5"
+OPTIONS=""
+```
+lalu jalankan
+```
+/usr/sbin/dhcrelay -q -i eth1 -i eth2 -i eth3 -i eth4 -i eth5 10.232.4.2 &
+ps aux | grep dhcrelay
+```
 ### Khamul
 <img width="2188" height="180" alt="image" src="https://github.com/user-attachments/assets/f2738d20-9268-4dde-9ae6-d56115936be2" />
 
