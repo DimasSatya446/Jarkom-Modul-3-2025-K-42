@@ -182,9 +182,30 @@ iface eth0 inet static
  netmask 255.255.255.0
  gateway 10.232.2.1
 ```
-
-
-
+Berikut konfigurasi sementasa pada setiap node agar dapat berkomunikasi dengan Valinor/Internet
 
 # Soal 2
+### Aldarion
+<img width="980" height="88" alt="image" src="https://github.com/user-attachments/assets/ed7b22f2-07cb-42db-8519-76dfec1ff85a" />
+
+Masuk ke node Aldarion dan jalankan perintah berikut
+```
+echo "nameserver 192.168.122.1" > /etc/resolv.conf
+apt update
+apt install isc-dhcp-server -y
+```
+setelah itu buka `/etc/default/isc-dhcp-server` dan isi dengan
+```
+INTERFACESv4="eth0"
+```
+### Khamul
 <img width="2188" height="180" alt="image" src="https://github.com/user-attachments/assets/f2738d20-9268-4dde-9ae6-d56115936be2" />
+
+
+### Amandil
+<img width="2190" height="134" alt="image" src="https://github.com/user-attachments/assets/650609d2-d3a5-43fd-affa-e6192157ab39" />
+
+
+### Gilgalad
+<img width="2198" height="138" alt="image" src="https://github.com/user-attachments/assets/90b9037b-eca7-4406-9f58-496244fa59f6" />
+
