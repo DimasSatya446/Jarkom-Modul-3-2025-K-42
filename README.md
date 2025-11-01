@@ -47,4 +47,144 @@ iface eth0 inet static
     netmask 255.255.255.0
     gateway 10.232.1.1
 ```
+### Isildur
+```
+auto eth0
+iface eth0 inet static
+ address 10.232.1.3
+ netmask 255.255.255.0
+ gateway 10.232.1.1
+```
+### Anarion
+```
+auto eth0
+iface eth0 inet static
+ address 10.232.1.4
+ netmask 255.255.255.0
+ gateway 10.232.1.1
+```
+### Miriel
+```
+auto eth0
+iface eth0 inet static
+ address 10.232.1.5
+ netmask 255.255.255.0
+ gateway 10.232.1.1
+```
+### Elros
+```
+auto eth0
+iface eth0 inet static
+ address 10.232.1.100
+ netmask 255.255.255.0
+ gateway 10.232.1.1
+```
+### Amandil
+```
+auto eth0
+iface eth0 inet dhcp
+```
+### Gilgalad
+```
+auto eth0
+iface eth0 inet dhcp
+```
+### Khamul
+```
+auto eth0
+iface eth0 inet dhcp
+```
+### Erendis
+```
+auto eth0
+iface eth0 inet static
+ address 10.232.3.2
+ netmask 255.255.255.0
+ gateway 10.232.3.1
+```
+### Amdir
+```
+auto eth0
+iface eth0 inet static
+ address 10.232.3.3
+ netmask 255.255.255.0
+ gateway 10.232.3.1
+```
+### Aldarion
+```
+auto eth0
+iface eth0 inet static
+ address 10.232.4.2
+ netmask 255.255.255.0
+ gateway 10.232.4.1
+```
+### Palantir
+```
+auto eth0
+iface eth0 inet static
+ address 10.232.4.3
+ netmask 255.255.255.0
+ gateway 10.232.4.1
+```
+### Narvi
+```
+auto eth0
+iface eth0 inet static
+ address 10.232.4.4
+ netmask 255.255.255.0
+ gateway 10.232.4.1
+```
+### Minastir
+```
+auto eth0
+iface eth0 inet static
+ address 10.232.5.2
+ netmask 255.255.255.0
+ gateway 10.232.5.1
+```
+### Pharazon
+```
+auto eth0
+iface eth0 inet static
+ address 10.232.2.2
+ netmask 255.255.255.0
+ gateway 10.232.2.1
+```
+### Celebrimbor
+```
+auto eth0
+iface eth0 inet static
+ address 10.232.2.3
+ netmask 255.255.255.0
+ gateway 10.232.2.1
+```
+### Oropher
+```
+auto eth0
+iface eth0 inet static
+ address 10.232.2.4
+ netmask 255.255.255.0
+ gateway 10.232.2.1
+```
+### Celeborn
+```
+auto eth0
+iface eth0 inet static
+ address 10.232.2.5
+ netmask 255.255.255.0
+ gateway 10.232.2.1
+```
+### Galadriel
+```
+auto eth0
+iface eth0 inet static
+ address 10.232.2.6
+ netmask 255.255.255.0
+ gateway 10.232.2.1
+```
 
+
+
+
+# Soal 2
+<img width="2188" height="180" alt="image" src="https://github.com/user-attachments/assets/f2738d20-9268-4dde-9ae6-d56115936be2" />
