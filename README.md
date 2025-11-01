@@ -255,7 +255,8 @@ service isc-dhcp-server status
 
 Lakukan beberapa instalasi sebelum melakukan konfigurasi pada router, instalasi seperti berikut:
 ```
-Lakukan beberapa instalasi sebelum melakukan konfigurasi pada router
+apt update
+apt install isc-dhcp-relay -y
 ```
 setelah itu edit config `/etc/default/isc-dhcp-relay` dan isi dengan:
 ```
@@ -271,11 +272,49 @@ ps aux | grep dhcrelay
 ### Khamul
 <img width="2188" height="180" alt="image" src="https://github.com/user-attachments/assets/f2738d20-9268-4dde-9ae6-d56115936be2" />
 
+Ubah config pada node khamul menjadi
+```
+auto eth0
+iface eth0 inet dhcp
+    hwaddress ether 02:42:22:01:5f:00
+```
 
+Lalu jalankan perintah di bawah
+```
+echo "nameserver 192.168.122.1" > /etc/resolv.conf
+apt update
+apt install isc-dhcp-client -y
+ip addr flush dev eth0
+dhclient eth0
+ip a
+```
 ### Amandil
 <img width="2190" height="134" alt="image" src="https://github.com/user-attachments/assets/650609d2-d3a5-43fd-affa-e6192157ab39" />
 
+```
+ip addr add 10.232.1.10/24 dev eth0
+ip route add default via 10.232.1.1
+echo "nameserver 192.168.122.1" > /etc/resolv.conf
+apt update
+apt install isc-dhcp-client -y
+ip addr flush dev eth0
+dhclient eth0
+ip a
+```
+Berikan IP sementara untuk instalasi lalu ganti IP menggunakan dari DHCP server
 
 ### Gilgalad
 <img width="2198" height="138" alt="image" src="https://github.com/user-attachments/assets/90b9037b-eca7-4406-9f58-496244fa59f6" />
+
+```
+ip addr add 10.232.2.10/24 dev eth0
+ip route add default via 10.232.2.1
+echo "nameserver 192.168.122.1" > /etc/resolv.conf
+apt update
+apt install isc-dhcp-client -y
+ip addr flush dev eth0
+dhclient eth0
+ip a
+```
+Berikan IP sementara untuk instalasi lalu ganti IP menggunakan dari DHCP server
 
