@@ -318,3 +318,39 @@ ip a
 ```
 Berikan IP sementara untuk instalasi lalu ganti IP menggunakan dari DHCP server
 
+# Soal 3
+### Minastir
+Jalankan perintah di bawah di Minastir
+```
+echo "nameserver 192.168.122.1" > /etc/resolv.conf
+apt update
+apt install bind9 -y
+```
+dan buka `/etc/bind/named.conf.options` lalu isi dengan
+```
+options {
+    directory "/var/cache/bind";
+
+    // DNS luar (forwarder)
+    forwarders {
+        192.168.122.1;   
+        8.8.8.8;         
+    };
+
+    allow-query { any; }; 
+    recursion yes;           
+    dnssec-validation no;
+    listen-on-v6 { any; };
+```
+lalu jalankan dengan perintah
+```
+/usr/sbin/named -c /etc/bind/named.conf -g &
+```
+
+### Khamul (Bebas)
+Jalankan perintah di bawah untuk pengujian
+```
+echo "nameserver 10.232.5.2" > /etc/resolv.conf
+ping -c 3 google.com
+dig @10.232.5.2 google.com
+```
